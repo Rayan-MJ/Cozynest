@@ -19,7 +19,7 @@ public class WantToRead {
     private Book book;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id") 
+    @JoinColumn(name = "user_id") // FK column
     private User user;
 
     public Book getBook() {

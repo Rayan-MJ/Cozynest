@@ -1,11 +1,9 @@
 
 package com.cozynest.cozynest.controller;
 
-import java.time.LocalDateTime;
 import java.util.Collections;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
@@ -17,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cozynest.cozynest.model.Book;
 import com.cozynest.cozynest.model.User;
 import com.cozynest.cozynest.model.dto.BookDTO;
-import com.cozynest.cozynest.model.dto.LogEntryDTO;
 import com.cozynest.cozynest.producer.LogProducer;
 import com.cozynest.cozynest.repo.BookRepo;
 import com.cozynest.cozynest.repo.UserRepo;
@@ -30,12 +27,10 @@ public class BookController {
 		final BookRepo repo;	
         final WantToreadRepo wantToreadRepo;
         final UserRepo userRepo;
-        private final LogProducer bookProducer;
-    BookController(BookRepo repo, WantToreadRepo wantToreadRepo, UserRepo userRepo, LogProducer bookProducer) {
+    BookController(BookRepo repo, WantToreadRepo wantToreadRepo, UserRepo userRepo) {
         this.repo = repo;
         this.wantToreadRepo = wantToreadRepo;
         this.userRepo = userRepo;
-        this.bookProducer = bookProducer;
     }
 
     @GetMapping("/search")

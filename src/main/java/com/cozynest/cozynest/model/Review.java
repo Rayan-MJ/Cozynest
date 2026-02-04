@@ -9,14 +9,14 @@ public class Review {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id; // "r" + autoId, not stored in DB directly
+    private Long id; 
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "book_id") // FK column
     private Book book;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id") 
+    @ManyToOne(fetch = FetchType.LAZY) 
+    @JoinColumn(name = "user_id") // FK column
     private User user;
 
 
