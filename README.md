@@ -1,6 +1,6 @@
 # Cozynest (Backend)
 
-Cozynest is a Spring Boot backend application written in Java 17. It serves as the API and message-processing backend for a React frontend, and uses RabbitMQ for asynchronous messaging. This repository demonstrates backend engineering skills: REST API design, authentication (JWT), messaging with RabbitMQ, persistence (JPA), dependency & build management (Maven), and testing.
+Cozynest is a website where users can discover books, read them, and share reviews with each other. This repository contains the backend for Cozynest, implemented in Spring Boot with Java 17. It serves as the API and message-processing backend for a React frontend, using RabbitMQ for asynchronous messaging. The project demonstrates backend engineering skills including REST API design, JWT-based authentication, messaging with RabbitMQ, data persistence with JPA, dependency and build management with Maven, and testing.
 
 ## Table of contents
 
