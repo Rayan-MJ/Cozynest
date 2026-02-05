@@ -80,13 +80,7 @@ A typical request flow:
    cd Cozynest
    ```
 
-2. Start a local RabbitMQ (or use Docker as shown below). For quick dev, start RabbitMQ with Docker:
-   ```bash
-   docker run -d --hostname rabbit --name cozynest-rabbit -p 5672:5672 -p 15672:15672 rabbitmq:3-management
-   ```
-   Visit http://localhost:15672 (default user `guest`/`guest`) to confirm.
-
-3. Run the app:
+2. Run the app:
    - With Maven wrapper:
      ```bash
      ./mvnw spring-boot:run
@@ -129,7 +123,7 @@ Below are sample endpoints and requests. Replace with real endpoints from your c
 
 1. Authentication (login)
    ```bash
-   curl -X POST http://localhost:8080/api/auth/login \
+   curl -X POST http://localhost:8080/auth/login \
      -H "Content-Type: application/json" \
      -d '{"username":"alice","password":"password"}'
    ```
@@ -140,14 +134,7 @@ Below are sample endpoints and requests. Replace with real endpoints from your c
 
 2. Protected resource example:
    ```bash
-   curl -H "Authorization: Bearer <JWT>" http://localhost:8080/api/users/me
-   ```
-
-3. Publish message to queue:
-   ```bash
-   curl -X POST http://localhost:8080/api/tasks \
-     -H "Content-Type: application/json" \
-     -d '{"taskType":"REPORT","payload":{...}}'
+   curl -H "Authorization: Bearer <JWT>" http://localhost:8080/users/me
    ```
 ---
 
