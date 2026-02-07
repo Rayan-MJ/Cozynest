@@ -1,6 +1,6 @@
 # Cozynest (Backend)
 
-Cozynest is a Spring Boot backend application written in Java 17. It serves as the API and message-processing backend for a React frontend, and uses RabbitMQ for asynchronous messaging. This repository demonstrates backend engineering skills: REST API design, authentication (JWT), messaging with RabbitMQ, persistence (JPA), dependency & build management (Maven), and testing.
+Cozynest is a website where users can discover books, read them, and share reviews with each other. This repository contains the backend for Cozynest, implemented in Spring Boot with Java 17. It serves as the API and message-processing backend for a React frontend, using RabbitMQ for asynchronous messaging. The project demonstrates backend engineering skills including REST API design, JWT-based authentication, messaging with RabbitMQ, data persistence with JPA, dependency and build management with Maven, and testing.
 
 ## Table of contents
 
@@ -80,13 +80,7 @@ A typical request flow:
    cd Cozynest
    ```
 
-2. Start a local RabbitMQ (or use Docker as shown below). For quick dev, start RabbitMQ with Docker:
-   ```bash
-   docker run -d --hostname rabbit --name cozynest-rabbit -p 5672:5672 -p 15672:15672 rabbitmq:3-management
-   ```
-   Visit http://localhost:15672 (default user `guest`/`guest`) to confirm.
-
-3. Run the app:
+2. Run the app:
    - With Maven wrapper:
      ```bash
      ./mvnw spring-boot:run
@@ -129,7 +123,7 @@ Below are sample endpoints and requests. Replace with real endpoints from your c
 
 1. Authentication (login)
    ```bash
-   curl -X POST http://localhost:8080/api/auth/login \
+   curl -X POST http://localhost:8080/auth/login \
      -H "Content-Type: application/json" \
      -d '{"username":"alice","password":"password"}'
    ```
@@ -140,14 +134,7 @@ Below are sample endpoints and requests. Replace with real endpoints from your c
 
 2. Protected resource example:
    ```bash
-   curl -H "Authorization: Bearer <JWT>" http://localhost:8080/api/users/me
-   ```
-
-3. Publish message to queue:
-   ```bash
-   curl -X POST http://localhost:8080/api/tasks \
-     -H "Content-Type: application/json" \
-     -d '{"taskType":"REPORT","payload":{...}}'
+   curl -H "Authorization: Bearer <JWT>" http://localhost:8080/users/me
    ```
 ---
 
